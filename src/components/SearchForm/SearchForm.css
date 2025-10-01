@@ -1,0 +1,28 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  padding-bottom: 40px;
+}
+
+.search-form__container {
+  /* max-width: 608px; */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-form__title {
+}
+
+.search-form__subtitle {
+}
+
+.search-form__form {
+}
+
+.search-form__input {
+}
+
+.search-form__btn {
+}

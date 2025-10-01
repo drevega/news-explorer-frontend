@@ -1,0 +1,35 @@
+/* @font-face {
+    font-family: 'Roboto Slab';
+    src: url('../public/fonts/RobotoSlab-Regular.ttf') format('truetype');
+} */
+
+.header {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 20px 40px;
+  border-bottom: 1px solid purple;
+  background-image: url("../../assets/header-img.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 576px;
+  /* not surre best option */
+  flex-direction: column;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header__logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  cursor: pointer;
+}

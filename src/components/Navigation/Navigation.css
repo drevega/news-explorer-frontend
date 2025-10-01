@@ -1,0 +1,35 @@
+/* .nav {
+} */
+.nav__links {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 42px;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 26px;
+  border-bottom: 3px solid transparent;
+}
+
+.nav__link_active {
+  border-bottom-color: #fff;
+}
+
+.nav__item {
+}
+
+.nav__btn {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-weight: 500;
+  cursor: pointer;
+}
