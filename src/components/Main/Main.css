@@ -1,0 +1,18 @@
+.main {
+  padding: 80px 104px;
+  background-color: #fff;
+  font-family: "Roboto Slab", serif;
+}
+
+.main__results-container {
+  max-width: 1232px;
+  margin: 0 auto;
+}
+
+.main__results-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin: 0 0 64px;
+}

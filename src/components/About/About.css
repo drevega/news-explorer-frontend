@@ -1,0 +1,42 @@
+.about {
+}
+
+.about__container {
+  max-width: 1232px;
+  margin: 80px auto 0;
+  display: flex;
+  gap: 56px;
+}
+
+/* .about__image {
+  background-image: url("../../assets/profile-pic.jpeg");
+
+} */
+
+.about__image-placeholder {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  background-color: #d1d2d6;
+  flex-shrink: 0;
+}
+
+.about__content {
+  padding-top: 51px;
+}
+
+.about__title {
+  font-family: "Roboto Slab", serif;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  font-weight: 400;
+  margin: 0 0 24px;
+}
+
+.about__text {
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+  margin: 0 0 20px;
+}
