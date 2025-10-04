@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation() {
@@ -6,10 +7,9 @@ function Navigation() {
     <nav className="nav">
       <ul className="nav__links">
         <li className="nav__item">
-          {/* rpl <a> w "link" later */}
-          <a href="/" className="nav__link nav__link_active">
+          <Link to="/" className="nav__link nav__link_active">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav__item">
           <button type="button" className="nav__btn">

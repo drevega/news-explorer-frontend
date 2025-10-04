@@ -1,0 +1,35 @@
+.footer {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 104px;
+}
+
+.footer__copyright {
+  font-size: 16px;
+  line-height: 22px;
+  color: #b6bcbf;
+  margin: 0;
+}
+
+.footer__nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer__link {
+  font-family: "Roboto Slab", serif;
+  line-height: 24px;
+  color: #1a1b22;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer__social-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+
+}

@@ -1,0 +1,39 @@
+.news-card-list {
+  max-width: 1232px;
+  margin: 0 auto;
+}
+
+.news-card-list__title {
+  font-family: "Roboto slab", serif;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin: 0 0 64px;
+}
+
+/* Grid for news cards */
+.news-card-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.news-card-list__show-more-btn {
+  display: block;
+  margin: 64px auto 0;
+  width: 288px;
+  height: 64px;
+  border: none;
+  border-radius: 80px;
+  background-color: #fff;
+  color: #1a1b22;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.news-card-list__show-more-btn:hover {
+  background-color: #e8e8e8;
+}
