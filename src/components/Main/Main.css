@@ -1,7 +1,7 @@
 .main {
   padding: 80px 104px;
   background-color: #fff;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", sans-serif;
 }
 
 .main__results-container {
@@ -10,7 +10,7 @@
 }
 
 .main__results-title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
   line-height: 46px;
   color: #1a1b22;

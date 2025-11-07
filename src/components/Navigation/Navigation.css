@@ -1,5 +1,6 @@
 /* .nav {
 } */
+
 .nav__links {
   display: flex;
   align-items: center;
@@ -13,16 +14,18 @@
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  padding-bottom: 26px;
-  border-bottom: 3px solid transparent;
+  font-size: 18px;
+  line-height: 24px;
+  padding-bottom: 36px;
+  border-bottom: 3px solid;
 }
 
 .nav__link_active {
   border-bottom-color: #fff;
 }
 
-.nav__item {
-}
+/* .nav__item {
+} */
 
 .nav__btn {
   background-color: transparent;

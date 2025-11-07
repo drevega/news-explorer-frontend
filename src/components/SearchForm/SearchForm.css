@@ -3,18 +3,17 @@
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-  padding-bottom: 48px;
 }
 
-.search-form__container {
+.search__container {
   max-width: 608px;
   /* not sure if thats too big */
   width: 100%;
   margin: 0 auto;
 }
 
-.search-form__title {
-  font-family: "Roboto", sans-serif;
+.search__title {
+  font-family: "Roboto", sans-sans-serif;
   color: #fff;
   font-weight: 400;
   font-size: 60px;
@@ -22,20 +21,20 @@
   margin: 0 0 32px;
 }
 
-.search-form__subtitle {
+.search__subtitle {
   color: #fff;
   font-size: 18px;
   line-height: 24px;
-  margin: 0 0 64px;
+  margin: 0 0 88px;
 }
 
-.search-form__form {
+.search__form {
   display: flex;
   position: relative;
 }
 
-.search-form__input {
-  color:#1A1B22;
+.search__input {
+  color: #1a1b22;
   width: 100%;
   height: 64px;
   border: 1px #d1d2d6;
@@ -44,13 +43,14 @@
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+  caret-color: #2f71e5;
 }
 
-.search-form__input::placeholder {
+.search__input::placeholder {
   color: #b6bcbf;
 }
 
-.search-form__btn {
+.search__btn {
   height: 64px;
   position: absolute;
   right: 0;
@@ -66,10 +66,10 @@
   box-shadow: 0 5px 15px #0e1a3933;
 }
 
-.search-form__btn:hover {
+.search__btn:hover {
   background-color: #347eff;
 }
 
-.search-form__btn:active {
+.search__btn:active {
   background-color: #2a65cc;
 }

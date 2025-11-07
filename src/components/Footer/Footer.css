@@ -1,9 +1,11 @@
 .footer {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 104px;
+  background-color: #fff;
 }
 
 .footer__copyright {
@@ -14,13 +16,14 @@
 }
 
 .footer__nav {
+  font-size: 18px;
+  line-height: 24px;
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
 .footer__link {
-  font-family: "Roboto Slab", serif;
   line-height: 24px;
   color: #1a1b22;
   text-decoration: none;
@@ -31,5 +34,4 @@
   display: flex;
   gap: 24px;
   align-items: center;
-
 }

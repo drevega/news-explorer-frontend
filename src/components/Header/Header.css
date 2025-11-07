@@ -1,22 +1,21 @@
-/* @font-face {
-    font-family: 'Roboto Slab';
-    src: url('../public/fonts/RobotoSlab-Regular.ttf') format('truetype');
-} */
-
 .header {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", sans-serif;
   display: flex;
   align-items: center;
-  color: #fff;
-  padding: 20px 40px;
-  border-bottom: 1px solid purple;
-  background-image: url("../../assets/header-img.avif");
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5)), url("../../assets/header-img.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* background-attachment: fixed; */
   min-height: 576px;
   /* not surre best option */
+  height: 80px;
+  color: #fff;
   flex-direction: column;
+  transition:
+    background-color 0.3s ease,
+    border-bottom-color 0.3s ease;
 }
 
 .header__container {
@@ -24,14 +23,16 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 26px 104px;
+  border-bottom: 1px solid #ffffff33;
+  box-sizing: border-box;
 }
 
 .header__logo {
   color: #fff;
   font-size: 20px;
-  font-weight: bold;
-  margin: 0;
+  font-weight: 700;
+  line-height: 24px;
   cursor: pointer;
-  width: 200px;
-  /* padding: auto; */
+  text-decoration: none;
 }

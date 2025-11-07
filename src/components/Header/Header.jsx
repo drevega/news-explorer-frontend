@@ -4,16 +4,17 @@ import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Header.css";
 
-function Header() {
+// Header component with search form and navigation
+function Header({ onSearchSubmit, onSignInClick, isLoggedIn }) {
   return (
     <header className="header">
       <div className="header__container">
         <Link to="/" className="header__logo">
           NewsExplorer
         </Link>
-        <Navigation />
+        <Navigation onSignInClick={onSignInClick} isLoggedIn={isLoggedIn} />
       </div>
-      <SearchForm />
+      <SearchForm onSearchSubmit={onSearchSubmit} />
     </header>
   );
 }

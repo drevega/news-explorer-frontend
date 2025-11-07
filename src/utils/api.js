@@ -2,6 +2,8 @@
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const API_URL = import.meta.env.VITE_NEWS_API_URL;
 
+
+// Helper function to handle fetch responses
 const handleResponse = (res) => {
     if (res.ok) {
         return res.json();

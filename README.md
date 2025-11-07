@@ -9,9 +9,17 @@ Tech Stack
 
 Demo and Links
 
+Author
+
 ## Project Features  🔦 
 
+Final TripleTen Bootcamp project that is a responsive web application that allows users to search for news articles on any topic. User is able to create a profile in which they can save their favorite articles and delete them. 
+
 ## Tech Stack 💻 
+Frontend: React, JavaScript, CSS, HTML
+
+API: News API
+
 
 ## Links 🚀
 
@@ -24,6 +32,12 @@ Demo and Links
 [Deployed project's domain]()
 
 [Images]() -->
+
+## Author
+Andrea Vega
+
+GitHub: [https://github.com/drevega]
+
 
 <!-- Currently, two official plugins are available:
 
