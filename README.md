@@ -1,24 +1,30 @@
 # NewsExplorer App  🔅 
 
-Welcome to my NewsExplorer React App, where the user is able to search for articles by keywords. 
+Welcome to my NewsExplorer React App, where the user is able to search for articles by keywords, create a profile and save their favorite artivles to their profile. Final TripleTen Bootcamp project that's a responsive web application that allows users to search for news articles on any topic. User is able to create a profile in which they can save their favorite articles and delete them. 
 
 ### Overview  🔍 
-Project Fetures
+- Project Features
 
-Tech Stack
+- Tech Stack
 
-Demo and Links
+- Demo and Links
 
-Author
+- Author
 
 ## Project Features  🔦 
 
-Final TripleTen Bootcamp project that is a responsive web application that allows users to search for news articles on any topic. User is able to create a profile in which they can save their favorite articles and delete them. 
+- Seach news (from external API)
+
+- Create profile and view saved articles
+
+- Responsive design for desktop and mobile 
+
+
 
 ## Tech Stack 💻 
 Frontend: React, JavaScript, CSS, HTML
 
-API: News API
+API: [News API](https://newsapi.org/)
 
 
 ## Links 🚀
@@ -36,7 +42,9 @@ API: News API
 ## Author
 Andrea Vega
 
-GitHub: [https://github.com/drevega]
+[GitHub Profile](https://github.com/drevega)
+
+
 
 
 <!-- Currently, two official plugins are available:

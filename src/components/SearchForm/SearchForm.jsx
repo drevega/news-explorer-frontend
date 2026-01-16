@@ -18,7 +18,7 @@ function SearchForm({ onSearchSubmit }) {
   return (
     <div className="search-form">
       <div className="search__container">
-        <h1 className="search__title">What&apos;s going in the world?</h1>
+        <h1 className="search__title">What&apos;s going on in the world?</h1>
         <p className="search__subtitle">
           Find the latest news on any topic and save them in your personal
           account.
@@ -32,7 +32,7 @@ function SearchForm({ onSearchSubmit }) {
             value={keyword}
             onChange={handleKeywordChange}
           />
-          <button className="search__btn" type="submit">
+          <button className="search__button" type="submit">
             Search
           </button>
         </form>

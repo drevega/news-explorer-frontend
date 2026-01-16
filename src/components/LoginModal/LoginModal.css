@@ -1,0 +1,130 @@
+.login {
+  width: 100%;
+  max-width: 100%;
+  color: #000;
+  font-family: "Inter", sans-serif;
+}
+
+.login__title {
+  font-family: "Roboto", serif;
+  color: #1a1b22;
+  height: 32px;
+  width: 83px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  margin: 0 0 22px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__error-message {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  width: 173px;
+  color: #ff0000;
+  margin-top: -25px;
+  padding-bottom: 13px;
+  font-weight: 400;
+  /* Hidden by default */
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.login__server-error {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ff0000;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 8px;
+  display: block;
+}
+
+.login__error-message_visible {
+  display: block;
+  opacity: 1;
+}
+
+.login__label {
+  font-size: 12px;
+  line-height: 100%;
+  color: #2f71e5;
+  margin-bottom: 9px;
+}
+
+.login__input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.login__input:focus {
+  outline: none;
+}
+
+.login__input::placeholder {
+  color: #b6bcbf;
+}
+
+.login__button {
+  width: 100%;
+  height: 64px;
+  border: none;
+  border-radius: 100px;
+  background-color: #2f71e5;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+.login__button_disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.login__button_disabled:hover {
+  background-color: #e6e8eb;
+}
+
+.login__switch {
+  text-align: center;
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 100%;
+  color: #000;
+}
+
+.login__switch-button {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.login__switch-button:hover {
+  opacity: 0.8;
+}
+
+.login__server-error + .login__button {
+  margin-top: 2px;
+}

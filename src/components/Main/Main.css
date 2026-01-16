@@ -1,7 +1,8 @@
 .main {
-  padding: 80px 104px;
-  background-color: #fff;
+  padding: 0;
+  background-color: transparent;
   font-family: "Roboto Slab", sans-serif;
+  width: 100%;
 }
 
 .main__results-container {

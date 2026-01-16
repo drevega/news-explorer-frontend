@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewsCard.css";
 
 // NewsCard component displaying individual news article details
 // Receive 'props' as an argument and destructure it to get the 'card' object
-function NewsCard({ card, isSavedNewsPage }) {
+function NewsCard({ card, isSavedNewsPage, isLoggedIn, onSignInClick }) {
+  const [isSaved, setIsSaved] = useState(false); // State to track if this specific card is saved
+
+  const handleSaveClick = () => {
+    if (isLoggedIn) {
+      // Toggle the save state (Turn blue / Turn off)
+      setIsSaved((prev) => !prev);
+      // logic for saving the article (implement later)
+      if (!isSaved) {
+        console.log("Article saved:", card.title);
+      } else {
+        console.log("Article unsaved:", card.title);
+      }
+    } else {
+      // User it NOT logged in -> Open the sign-in modal
+      onSignInClick();
+    }
+  };
+
   return (
     <li className="news-card">
       <img src={card.image} alt={card.title} className="news-card__image" />
@@ -20,10 +38,16 @@ function NewsCard({ card, isSavedNewsPage }) {
       ) : (
         <>
           <button
-            className="news-card__button news-card__button_save"
+            className={`news-card__button news-card__button_save ${
+              isSaved ? "news-card__button_active" : ""
+            }`}
             type="button"
+            onClick={handleSaveClick}
           ></button>
-          <div className="news-card__tooltip">Sign in to save articles</div>
+          {/* only show "Sign in to save" tooltip if NOT logged in */}
+          {!isLoggedIn && (
+            <div className="news-card__tooltip">Sign in to save articles</div>
+          )}
         </>
       )}
 

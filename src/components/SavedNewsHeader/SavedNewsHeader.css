@@ -1,41 +1,135 @@
 .saved-header {
   font-family: "Roboto", sans-serif;
-  padding: 0 104px;
-  box-shadow: inset 0 -1px 0 #d1d2d6;
+  padding: 0;
+  background-color: #fff;
 }
 
 .saved-header__nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
+  height: 80px;
+  padding: 0 104px;
+  border-bottom: 1px solid #d1d2d6;
+  box-sizing: border-box;
 }
 
 .saved-header__logo {
   font-family: "Roboto Slab", serif;
   font-size: 20px;
   font-weight: 700;
+  line-height: 24px;
   color: #1a1b22;
   margin: 0;
+  text-decoration: none;
 }
 
-.saved-header__summary {
-  padding: 40px 0;
+.saved-header__logo:hover {
+  opacity: 0.8;
+}
+
+.saved-header__text-content {
+  padding: 40px 104px;
   font-size: 18px;
   line-height: 24px;
 }
 
 .saved-header__title {
+  font-family: "Roboto", sans-serif;
   color: #1a1b2280;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   margin: 0 0 28px;
+  max-width: 712px;
 }
 
-.saved-header__subtitle {
+.saved-header__summary-text {
   font-family: "Roboto Slab", serif;
+  font-weight: 400;
   font-size: 40px;
   line-height: 46px;
   color: #1a1b22;
+  margin: 0 0 30px;
+  max-width: 530px;
+}
+
+.saved-header__keywords {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
   margin: 0;
+}
+
+.saved-header__keywords-highlight {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .saved-header__nav {
+    height: 66px;
+    padding: 0 40px;
+  }
+
+  .saved-header__text-content {
+    padding: 24px 40px 32px;
+  }
+
+  .saved-header__title {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .saved-header__summary-text {
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .saved-header__nav {
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .saved-header__text-content {
+    padding: 8px 16px 32px;
+  }
+
+  .saved-header__logo {
+    font-size: 16px;
+  }
+
+  .saved-header__title {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .saved-header__summary-text {
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: 30px;
+    max-width: 320px;
+  }
+
+  .saved-header__keywords {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .saved-header_menu-open {
+    background-color: #1a1b22;
+  }
+
+  .saved-header_menu-open .saved-header__logo {
+    color: #fff;
+  }
+
+  .saved-header_menu-open .saved-header__nav {
+    border-bottom: 1px solid #ffffff33;
+  }
 }
