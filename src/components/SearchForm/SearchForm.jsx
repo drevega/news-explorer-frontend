@@ -5,14 +5,25 @@ import "./SearchForm.css";
 function SearchForm({ onSearchSubmit }) {
   // State to hold the input value
   const [keyword, setKeyword] = useState("");
+  // State for placeholder text
+  const [placeholder, setPlaceholder] = useState("Enter topic");
 
   const handleKeywordChange = (e) => {
     setKeyword(e.target.value); // Update state with input value
+    if (placeholder !== "Enter topic") {
+      setPlaceholder("Enter topic"); // Reset placeholder on input change
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearchSubmit(keyword);
+    // Validation logic
+    if (!keyword.trim()) {
+      setPlaceholder("Please enter a keyword");
+      return;
+    }
+    // If valid, send to App.js and reset input
+    onSearchSubmit(keyword.trim());
   };
 
   return (
@@ -27,8 +38,8 @@ function SearchForm({ onSearchSubmit }) {
           <input
             className="search__input"
             type="text"
-            placeholder="Enter topic"
-            required
+            placeholder={placeholder}
+            // required // removed to allow custom validity messages
             value={keyword}
             onChange={handleKeywordChange}
           />

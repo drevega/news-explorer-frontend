@@ -61,7 +61,7 @@ function NewsCard({ card, isSavedNewsPage, isLoggedIn, onSignInClick }) {
           <p className="news-card__date">{card.date}</p>
           <h3 className="news-card__title">{card.title}</h3>
           <p className="news-card__text">{card.text}</p>
-          <p className="news-card__source">{card.source}</p>
+          <p className="news-card__source">{card.source.name}</p>
         </div>
       </a>
     </li>

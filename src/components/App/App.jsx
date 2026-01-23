@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { searchNews } from "../../utils/api";
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -8,7 +10,6 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegisterSuccessModal from "../RegisterSuccessModal/RegisterSuccessModal";
 import LogoutModal from "../LogoutModal/LogoutModal";
-import { articles as sampleArticles } from "../../utils/constants";
 import "./App.css";
 
 // Main App component
@@ -23,9 +24,10 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   // Placeholder for user authentication state
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Change to true to simulate Logged-in
-
   // Variable to track if menu is open/closed
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // State for server errors
+  const [isServerError, setIsServerError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -51,20 +53,27 @@ function App() {
     setIsLoading(true); // Start loading
     setArticles([]); // Clear previous articles
     setIsNotFound(false); // Reset not found state on new search
-    // Simulate an API call with a delay
-    setTimeout(() => {
-      // LOGIC STARTS HERE
-      // For Testing: change this to [] to see "Nothing Found" component
-      const results = sampleArticles; // sampleArticles Or [] to test empty state
-      if (results.length === 0) {
-        setIsNotFound(true);
-      } else {
-        setArticles(results);
-        // setArticles(sampleArticles); // Replace with actual API call in the future
-      }
-      setIsLoading(false); // End loading
-      // LOGIC ENDS HERE
-    }, 1500); // Simulated delay of 1.5 seconds
+    setIsServerError(false); // Reset server error state on new search
+
+    searchNews(keyword)
+      .then((res) => {
+        // NewsAPI returns the array inside a property called "articles"
+        const newsArticles = res.articles;
+
+        if (newsArticles.length === 0) {
+          setArticles([]);
+          setIsNotFound(true);
+        } else {
+          setArticles(newsArticles);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsServerError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleOpenSignInModal = () => {
@@ -114,6 +123,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 onSignInClick={handleOpenSignInModal}
                 isNotFound={isNotFound}
+                isServerError={isServerError}
               />
             </>
           }

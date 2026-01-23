@@ -6,13 +6,28 @@ import NothingFound from "../NothingFound/NothingFound";
 import "./Main.css";
 
 // Main component displaying articles/loading state
-function Main({ articles, isLoading, isLoggedIn, onSignInClick, isNotFound }) {
+function Main({
+  articles,
+  isLoading,
+  isLoggedIn,
+  onSignInClick,
+  isNotFound,
+  isServerError,
+}) {
   return (
     <main className="main">
       {/* Logic Flow */}
       {isLoading && <Preloader />}
-      {/*  Show articles if we have them */}
-      {!isLoading && articles.length > 0 && (
+      {/*  Show server errror is true */}
+      {isServerError && (
+        <div className="nothing-found">
+          <p className="nothing-found__text">
+            Sorry, something went wrong during the request. Please try again.
+          </p>
+        </div>
+      )}
+      {/*  Show NewsCardList if no error, not loading, and has articles */}
+      {!isLoading && !isServerError && articles.length > 0 && (
         <NewsCardList
           cards={articles}
           isLoggedIn={isLoggedIn}
@@ -20,11 +35,9 @@ function Main({ articles, isLoading, isLoggedIn, onSignInClick, isNotFound }) {
         />
       )}
 
-      {/*  Show NothingFound if flag is true */}
-      {!isLoading && isNotFound && <NothingFound />}
-      {/* temporary until API is done */}
+      {/*  Show NothingFound if no error, not loading, and empty list */}
+      {!isLoading && !isServerError && isNotFound && <NothingFound />}
       <About />
-      {/* remove this later */}
     </main>
   );
 }
