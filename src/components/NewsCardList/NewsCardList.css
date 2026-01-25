@@ -35,7 +35,7 @@
 .news-card-list__show-more-button {
   font-family: "Roboto", sans-serif;
   display: block;
-  margin: 64px auto 0;
+  margin: 0 auto 80px;
   width: 288px;
   height: 64px;
   border: none;
@@ -97,6 +97,7 @@
 
   .news-card-list__show-more-button {
     width: 100%;
-    margin-top: 32px;
+    max-width: none;
+    margin: 16px 0 24px;
   }
 }

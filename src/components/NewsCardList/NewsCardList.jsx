@@ -24,12 +24,6 @@ function NewsCardList({ cards, isSavedNewsPage, isLoggedIn, onSignInClick }) {
             />
           ))}
         </ul>
-        {/* only show button if not on saved news page */}
-        {!isSavedNewsPage && (
-          <button className="news-card-list__show-more-button" type="button">
-            Show more
-          </button>
-        )}
       </div>
     </section>
   );

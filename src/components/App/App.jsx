@@ -23,7 +23,7 @@ function App() {
   // activeModal can be "signin", "signup", "success, or "logout"
   const [activeModal, setActiveModal] = useState("");
   // Placeholder for user authentication state
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Change to true to simulate Logged-in
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Change to true to simulate Logged-in
   // Variable to track if menu is open/closed
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // State for server errors
@@ -58,13 +58,37 @@ function App() {
     searchNews(keyword)
       .then((res) => {
         // NewsAPI returns the array inside a property called "articles"
-        const newsArticles = res.articles;
+        const newsArticles = res.articles || [];
 
         if (newsArticles.length === 0) {
-          setArticles([]);
+          // setArticles([]);
           setIsNotFound(true);
+          return;
         } else {
-          setArticles(newsArticles);
+          // Translation logic starts here
+          const formattedArticles = newsArticles.map((article) => ({
+            // Map 'urlToImage' to 'image' for NewsCard component
+            image: article.urlToImage,
+            // Map 'publishedAt' to 'date' and format it
+            date: new Date(article.publishedAt).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            }),
+            // Map other fields
+            title: article.title,
+            text: article.description,
+            source: article.source,
+            link: article.url,
+            keyword: keyword, // Store the search keyword with the article
+          }));
+
+          // Remove articles that don't have images
+          const cleanArticles = formattedArticles.filter(
+            (article) => article.image && article.title && article.text
+          );
+          setArticles(cleanArticles);
+          // Translation logic ends here
         }
       })
       .catch((err) => {
