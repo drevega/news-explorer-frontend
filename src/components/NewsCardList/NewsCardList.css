@@ -71,6 +71,10 @@
     grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
     gap: 16px;
   }
+
+  .news-card-list__show-more-button {
+    margin: 0 auto 40px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -98,6 +102,6 @@
   .news-card-list__show-more-button {
     width: 100%;
     max-width: none;
-    margin: 16px 0 24px;
+    margin: 0 0 24px;
   }
 }

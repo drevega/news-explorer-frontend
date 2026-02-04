@@ -19,7 +19,6 @@ export const searchNews = (keyword) => {
   const formatDate = (date) => date.toISOString().split("T")[0];
 
   const currentDate = formatDate(new Date());
-
   const pastDateObj = new Date();
   pastDateObj.setDate(pastDateObj.getDate() - 7);
   const pastDate = formatDate(pastDateObj);

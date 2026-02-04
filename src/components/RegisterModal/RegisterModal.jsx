@@ -22,7 +22,6 @@ function RegisterModal({ isOpen, onClose, onSwitch, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Registering:", email, password, username);
     // If successful registration, onRegister prop to switch to success modal
     onRegister();
   };

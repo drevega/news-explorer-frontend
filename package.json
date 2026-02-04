@@ -1,14 +1,17 @@
 {
   "name": "news-explorer-frontend",
+  "homepage": "https://drevega.github.io/news-explorer-frontend/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",

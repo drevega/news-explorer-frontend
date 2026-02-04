@@ -13,6 +13,9 @@ function Main({
   onSignInClick,
   isNotFound,
   isServerError,
+  onSaveArticle,
+  onDeleteArticle,
+  savedArticles,
 }) {
   // State to track how many articles to show
   const [visibleCount, setVisibleCount] = useState(3);
@@ -49,6 +52,9 @@ function Main({
             cards={articles.slice(0, visibleCount)}
             isLoggedIn={isLoggedIn}
             onSignInClick={onSignInClick}
+            onSaveArticle={onSaveArticle}
+            onDeleteArticle={onDeleteArticle}
+            savedArticles={savedArticles}
           />
 
           {/* Show button only if there are more articles to show */}

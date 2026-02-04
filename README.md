@@ -1,61 +1,75 @@
-# NewsExplorer App  🔅 
+# NewsExplorer App 📰✨
 
-Welcome to my NewsExplorer React App, where the user is able to search for articles by keywords, create a profile and save their favorite artivles to their profile. Final TripleTen Bootcamp project that's a responsive web application that allows users to search for news articles on any topic. User is able to create a profile in which they can save their favorite articles and delete them. 
+**NewsExplorer** is a responsive React application that allows users to search for news articles by keyword, create an account, and save their favorite articles to a personal profile.
 
-### Overview  🔍 
-- Project Features
+This project is the final frontend project for the **TripleTen Software Engineering Bootcamp**. It demonstrates React state management, conditional rendering, API integration, and simulated backend behavior for authentication and saved articles.
 
-- Tech Stack
+---
 
-- Demo and Links
+## 🔍 Overview
 
-- Author
+- Search for news articles using a public API  
+- Create an account and log in (simulated authentication)  
+- Save and delete favorite articles  
+- View saved articles on a dedicated page  
+- Fully responsive design for desktop and mobile  
 
-## Project Features  🔦 
+---
 
-- Seach news (from external API)
+## 🔦 Project Features
 
-- Create profile and view saved articles
+- 🔎 Keyword-based news search using an external API  
+- 🔐 Simulated user authentication (login, token check)  
+- ❤️ Save articles to a user profile  
+- 🗑 Delete saved articles  
+- 📱 Responsive layout with mobile navigation  
+- ⏳ Loading states and error handling  
 
-- Responsive design for desktop and mobile 
+---
 
+## 🧠 Simulated Backend Behavior
 
+Since this project does not yet include a real backend, the following responses are simulated on the frontend:
 
-## Tech Stack 💻 
-Frontend: React, JavaScript, CSS, HTML
+- User registration and login  
+- JWT token storage and validation  
+- Fetching saved articles  
+- Saving and deleting articles  
 
-API: [News API](https://newsapi.org/)
+These simulations allow the app to behave like a real production application.
 
+---
 
-## Links 🚀
+## 💻 Tech Stack
 
-[FigmaDesign](https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-606&t=VaEzBHy0bE7cijVT-0)
+**Frontend**
+- React
+- JavaScript (ES6+)
+- HTML5
+- CSS3
 
-<!-- [Demo]()
+**Tools & Libraries**
+- React Router
+- Vite
+- ESLint
 
-[Front-End GitHub]()
+**API**
+- [News API](https://newsapi.org/)
 
-[Deployed project's domain]()
+---
 
-[Images]() -->
+## 🚀 Links
 
-## Author
-Andrea Vega
+- 🎨 [Figma Design](https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-606&t=VaEzBHy0bE7cijVT-0)
+- 💻 [Frontend Repository](https://github.com/drevega/news-explorer-frontend) 
+- 🌐 [Live Demo](https://drive.google.com/file/d/1u0bAcpoRiVyBemjiKY0CGUS2QXkncNkk/view?usp=sharing)
 
-[GitHub Profile](https://github.com/drevega)
+---
 
+## 👩‍💻 Author
 
+**Andrea Vega**
 
+- GitHub: [https://github.com/drevega](https://github.com/drevega)
 
-<!-- Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project. -->
+---

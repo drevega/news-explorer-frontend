@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "./NewsCard.css";
 
 // NewsCard component displaying individual news article details
 // Receive 'props' as an argument and destructure it to get the 'card' object
-function NewsCard({ card, isSavedNewsPage, isLoggedIn, onSignInClick }) {
-  const [isSaved, setIsSaved] = useState(false); // State to track if this specific card is saved
+function NewsCard({
+  card,
+  isSavedNewsPage,
+  isLoggedIn,
+  onSignInClick,
+  onSaveArticle,
+  onDeleteArticle,
+  savedArticles,
+}) {
+  // Check if the article is already saved
+  const isSaved = savedArticles?.some((article) => article.link === card.link);
 
   const handleSaveClick = () => {
     if (isLoggedIn) {
-      // Toggle the save state (Turn blue / Turn off)
-      setIsSaved((prev) => !prev);
-      // logic for saving the article (implement later)
       if (!isSaved) {
-        console.log("Article saved:", card.title);
-      } else {
-        console.log("Article unsaved:", card.title);
+        onSaveArticle(card); // Save the article
       }
     } else {
       // User it NOT logged in -> Open the sign-in modal
       onSignInClick();
     }
+  };
+
+  const handleDeleteClick = () => {
+    onDeleteArticle(card._id);
   };
 
   return (
@@ -32,6 +40,7 @@ function NewsCard({ card, isSavedNewsPage, isLoggedIn, onSignInClick }) {
           <button
             className="news-card__button news-card__button_delete"
             type="button"
+            onClick={handleDeleteClick}
           ></button>
           <div className="news-card__tooltip">Remove from saved</div>
         </>

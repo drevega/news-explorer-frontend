@@ -24,7 +24,6 @@ function LoginModal({ isOpen, onClose, onSwitch, onLogin }) {
     e.preventDefault();
     onLogin();
     // Future change: put API check here before calling onLogin
-    console.log("Logging in with:", email, password);
   };
 
   const isFormValid = email !== "" && password !== "";

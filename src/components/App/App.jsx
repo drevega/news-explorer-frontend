@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { searchNews } from "../../utils/api";
+import {
+  getSavedArticles,
+  saveArticle,
+  deleteArticle,
+} from "../../utils/MainApi";
+import * as auth from "../../utils/auth"; // Auth simulation
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -16,40 +22,103 @@ import "./App.css";
 function App() {
   // State variables for articles and loading status
   const [articles, setArticles] = useState([]); // Start empty
+  // Saved articles state
+  const [savedArticles, setSavedArticles] = useState([]);
   // Loading state for search
   const [isLoading, setIsLoading] = useState(false);
   // Not Found error
   const [isNotFound, setIsNotFound] = useState(false);
-  // activeModal can be "signin", "signup", "success, or "logout"
-  const [activeModal, setActiveModal] = useState("");
-  // Placeholder for user authentication state
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Change to true to simulate Logged-in
-  // Variable to track if menu is open/closed
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // State for server errors
   const [isServerError, setIsServerError] = useState(false);
+  // Current user state
+  const [currentUser, setCurrentUser] = useState(null);
+  // Placeholder for user authentication state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Change to true to simulate Logged-in
+  // activeModal can be "signin", "signup", "success, or "logout"
+  const [activeModal, setActiveModal] = useState("");
+  // Variable to track if menu is open/closed
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigate = useNavigate();
 
-  // SEARCH HANDLERS
+  // Check token on Refresh
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      // If token exists, simulate fethching user data
+      auth
+        .checkToken(token)
+        .then((res) => {
+          setIsLoggedIn(true);
+          setCurrentUser(res.data); // Set user date from response
+          // Load saved articles only if logged in
+          return getSavedArticles();
+        })
+        .then((articles) => {
+          setSavedArticles(articles);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, []);
 
+  // SEARCH HANDLERS
   // Handle successful login
-  const handleLogin = () => {
+  const handleLogin = (email, password) => {
     setIsLoading(true);
-    handleCloseModal();
+
+    auth
+      .authorize(email, password)
+      .then((data) => {
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+          setIsLoggedIn(true);
+          // Mock setting user data after login
+          setCurrentUser({ name: "Elise", email: email, _id: "1234567890" });
+          handleCloseModal();
+
+          // Also fetch their saved articles immediately
+          getSavedArticles().then(setSavedArticles);
+        }
+      })
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setIsLoading(false); // Turn off preloader
+      });
   };
 
   // Logout Handler
   const handleLogout = () => {
-    console.log("Logged out"); // Debugging line
     setIsLoggedIn(false); // log user out
+    setCurrentUser(null); // Clear current user date
+    setSavedArticles([]); // Clear saved articles
+    localStorage.removeItem("jwt"); // Remove token from localStorage
     setIsMobileMenuOpen(false); // close mobile menu if open
     setActiveModal("logout"); // open the "succesfully logged out" modal
     navigate("/"); // Redirect to home immediatelly
   };
 
+  // Save / Delete article handlers
+  const handleSaveArticle = (article) => {
+    saveArticle(article)
+      .then((savedArticle) => {
+        setSavedArticles((prev) => [savedArticle, ...prev]);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  // Delete article handler
+  const handleDeleteArticle = (articleId) => {
+    deleteArticle(articleId)
+      .then(() => {
+        setSavedArticles((prev) =>
+          prev.filter((item) => item._id !== articleId),
+        );
+      })
+      .catch((err) => console.error(err));
+  };
+
+  // Search submmit handler
   const handleSearchSubmit = (keyword) => {
-    console.log("Searching for:", keyword); // Debugging line
     setIsLoading(true); // Start loading
     setArticles([]); // Clear previous articles
     setIsNotFound(false); // Reset not found state on new search
@@ -59,11 +128,8 @@ function App() {
       .then((res) => {
         // NewsAPI returns the array inside a property called "articles"
         const newsArticles = res.articles || [];
-
         if (newsArticles.length === 0) {
-          // setArticles([]);
           setIsNotFound(true);
-          return;
         } else {
           // Translation logic starts here
           const formattedArticles = newsArticles.map((article) => ({
@@ -80,12 +146,12 @@ function App() {
             text: article.description,
             source: article.source,
             link: article.url,
-            keyword: keyword, // Store the search keyword with the article
+            keyword: keyword,
           }));
 
           // Remove articles that don't have images
           const cleanArticles = formattedArticles.filter(
-            (article) => article.image && article.title && article.text
+            (article) => article.image && article.title && article.text,
           );
           setArticles(cleanArticles);
           // Translation logic ends here
@@ -100,6 +166,7 @@ function App() {
       });
   };
 
+  // Modal Handlers
   const handleOpenSignInModal = () => {
     setActiveModal("signin");
   };
@@ -116,6 +183,7 @@ function App() {
     setActiveModal("success");
   };
 
+  // Mobile Menu handlers
   const handleMobileMenuClick = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -140,6 +208,7 @@ function App() {
                 isMobileMenuOpen={isMobileMenuOpen}
                 onMenuClick={handleMobileMenuClick}
                 isModalOpen={activeModal !== ""}
+                currentUser={currentUser}
               />
               <Main
                 articles={articles}
@@ -148,6 +217,9 @@ function App() {
                 onSignInClick={handleOpenSignInModal}
                 isNotFound={isNotFound}
                 isServerError={isServerError}
+                onSaveArticle={handleSaveArticle}
+                onDeleteArticle={handleDeleteArticle}
+                savedArticles={savedArticles}
               />
             </>
           }
@@ -156,11 +228,14 @@ function App() {
           path="/saved-news"
           element={
             <SavedNews
+              articles={savedArticles}
               isLoggedIn={isLoggedIn}
               onLogout={handleLogout}
+              onDeleteArticle={handleDeleteArticle}
               onMenuClose={closeMobileMenu}
               onMenuClick={handleMobileMenuClick}
               isMobileMenuOpen={isMobileMenuOpen}
+              currentUser={currentUser}
             />
           }
         />

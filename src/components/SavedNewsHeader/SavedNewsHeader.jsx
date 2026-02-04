@@ -37,7 +37,7 @@ function SavedNewsHeader({
         </h1>
         {/* Keyword section is conditionally rendered if articles exist */}
         {articleCount > 0 && (
-          <p className="saved-header__keywords">{keywordSummary}</p>
+          <p className="saved-header__keywords"> {keywordSummary} </p>
         )}
         {/* add changes - to update as many as saved  */}
       </div>
