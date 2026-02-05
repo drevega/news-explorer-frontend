@@ -63,6 +63,7 @@ These simulations allow the app to behave like a real production application.
 - 🎨 [Figma Design](https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=22618-606&t=VaEzBHy0bE7cijVT-0)
 - 💻 [Frontend Repository](https://drevega.github.io/news-explorer-frontend/) 
 - 🌐 [Live Demo](https://drive.google.com/file/d/1u0bAcpoRiVyBemjiKY0CGUS2QXkncNkk/view?usp=sharing)
+- 🌐 [Project Pitch Video](https://drive.google.com/file/d/1a6R6JqbqqL0uAAaAz6yRLooreqwb4DyV/view?usp=sharing)
 
 ---
 
