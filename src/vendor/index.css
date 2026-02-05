@@ -1,0 +1,13 @@
+@import url(./fonts.css);
+@import url(./normalize.css);
+
+.element:hover {
+  cursor: url("../../assets/cursor.svg"), pointer;
+}
+
+a:hover,
+button:hover,
+.header__logo:hover,
+.nav__button:hover {
+  cursor: url("../assets/cursor.svg"), pointer;
+}

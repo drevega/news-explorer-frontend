@@ -1,0 +1,25 @@
+.logout-content {
+  text-align: left;
+}
+
+.logout__title {
+  margin-bottom: 14px;
+  width: auto;
+}
+
+.logout__switch {
+  margin: 0;
+}
+
+.logout__link {
+  font-size: 18px;
+  color: #2f71e5;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logout__link:hover {
+  opacity: 0.8;
+}

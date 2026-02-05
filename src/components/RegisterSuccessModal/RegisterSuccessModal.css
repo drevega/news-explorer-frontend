@@ -1,0 +1,33 @@
+.register-success {
+  padding-bottom: 0;
+  text-align: left;
+}
+
+.register-success__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28px;
+  color: #1a1b22;
+  margin-top: 0;
+  margin-bottom: 14px;
+  max-width: 329px;
+}
+
+.register-success__link {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #2f71e5;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  display: inline-block;
+}
+
+.register-success__link:hover {
+  opacity: 0.8;
+}

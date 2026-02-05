@@ -1,0 +1,323 @@
+.nav__links {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 42px;
+}
+
+.nav__link {
+  font-family: "Roboto", sans-serif;
+  color: #1a1b22;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+  transition:
+    color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+.nav__link:hover {
+  opacity: 0.8;
+}
+
+.nav__link_active {
+  border-bottom-color: #fff;
+}
+
+.nav__link_theme_light {
+  color: #fff;
+}
+
+.nav__link_theme_dark {
+  color: #1a1b22;
+}
+
+.nav__link_active_light {
+  border-bottom-color: #fff;
+}
+
+.nav__link_active_dark {
+  border-bottom-color: #1a1b22;
+}
+
+.nav__button {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  height: 48px;
+  padding: 0px 20px;
+  font-weight: 500;
+  box-sizing: border-box;
+  cursor: pointer;
+  min-width: 176px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__button:hover {
+  opacity: 0.8;
+}
+
+.nav__button_logout {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  height: 48px;
+  padding: 0 18px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+.nav__button_logout,
+.nav__button_logout_dark {
+  min-width: auto;
+  padding: 0 18px;
+}
+
+.nav__button_logout:hover {
+  opacity: 0.8;
+}
+
+.nav__logout-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.nav__button_logout_dark {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  height: 48px;
+  padding: 0px 18px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  border-radius: 100px;
+  color: #1a1b22;
+  border: 1px solid #d1d2d6;
+  background-color: transparent;
+}
+
+.nav__button_logout_dark:hover {
+  opacity: 0.8;
+}
+
+.nav__button_logout_dark .nav__logout-icon {
+  width: 24px;
+  height: 24px;
+  filter: none;
+}
+
+.nav__menu {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    padding: 0;
+    height: 66px;
+  }
+
+  .nav__links {
+    gap: 16px;
+  }
+
+  .nav__link {
+    font-size: 16px;
+    padding: 0 16px;
+    height: 66px;
+  }
+
+  .nav__button {
+    min-width: 152px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    height: auto;
+    width: auto;
+    position: static;
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* hide desktop nav */
+  .nav__links {
+    display: none;
+    background-color: #1a1b22;
+    padding: 16px 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+    z-index: 1500;
+  }
+
+  /* show menu */
+  .nav__menu {
+    display: flex;
+    position: relative;
+    z-index: 2002;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav__menu:hover .nav__menu-icon {
+    opacity: 0.8;
+  }
+
+  .nav__menu-icon,
+  .modal__close-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  .nav__menu-open .nav__button_logout_dark {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .nav__menu-open .nav__button_logout_dark .nav__logout-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  /* mobile menu open state */
+  .nav__links_open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #1a1b22;
+    padding: 16px 16px 24px;
+    box-sizing: border-box;
+    gap: 22px;
+    align-items: flex-start;
+    z-index: 1500;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav__links_open .nav__link {
+    font-size: 18px;
+    padding: 0;
+    height: auto;
+    color: #fff;
+    border: none;
+    width: 100%;
+    display: block;
+  }
+
+  .nav__links_open .nav__button {
+    width: 100%;
+    height: 56px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .nav__links_open .nav__button,
+  .nav__links_open .nav__button_logout,
+  .nav__links_open .nav__button_logout_dark {
+    font-size: 18px;
+    line-height: 24px;
+    width: 100%;
+    height: 56px;
+    margin-top: 0;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .nav__links_open .nav__link:hover,
+  .nav__links_open .nav__button:hover,
+  .nav__links_open .nav__button_logout:hover,
+  .nav__links_open .nav__button_logout_dark:hover {
+    opacity: 0.8;
+  }
+
+  .nav__links_open .nav__button_logout_dark .nav__logout-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .nav__links_open .nav__item {
+    width: 100%;
+    max-width: 288px;
+    text-align: left;
+  }
+
+  .nav__links_open .nav__button_logout_dark {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .nav__links_open .nav__button_logout_dark .nav__logout-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .nav_modal-open .nav__menu {
+    display: none;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav__overlay {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}

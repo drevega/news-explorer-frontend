@@ -1,0 +1,16 @@
+.saved-news__content {
+  background-color: #f5f6f7;
+  padding: 62px 104px;
+}
+
+@media screen and (max-width: 1024px) {
+  .saved-news__content {
+    padding: 32px 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .saved-news__content {
+    padding: 24px 16px;
+  }
+}

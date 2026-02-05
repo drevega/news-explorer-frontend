@@ -1,0 +1,19 @@
+.main {
+  padding: 0;
+  background-color: transparent;
+  font-family: "Roboto Slab", sans-serif;
+  width: 100%;
+}
+
+.main__results-container {
+  max-width: 1232px;
+  margin: 0 auto;
+}
+
+.main__results-title {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin: 0 0 64px;
+}
